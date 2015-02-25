@@ -11,4 +11,10 @@ proj.directory-list = [{'dirloc': loc('.'),
                         'recursive': True,
                         'watch_for_changes': True}]
 proj.file-type = 'shared'
+proj.launch-config = {loc('manage.py'): ('project',
+        (u'runserver 8001',
+         '')),
+                      loc('order/models.py'): ('project',
+        (u'runserver',
+         ''))}
 proj.main-file = loc('manage.py')

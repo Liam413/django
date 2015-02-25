@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -20,16 +21,20 @@ class Ptype(models.Model):
 class Order(models.Model):
     odate   = models.DateTimeField('order date', auto_now=True)
     product = models.ForeignKey("product")
-    user    = models.ForeignKey('User')
+    user    = models.ForeignKey(User)
    
 #create your model here  
 class UserProfile(models.Model):
     SEX_CHOICES = (
-        ('1', u'男'),
-        ('2', u'女'),
+        ('1', '男'),
+        ('2', '女'),
     )
     
     user = models.OneToOneField(User)
     nickname = models.CharField(u'昵称',max_length=30)
     sex = models.CharField(u'性别',max_length=1,choices=SEX_CHOICES,default='1')
     address = models.CharField(u'地址',max_length=100,null=True)
+    
+    def __unicode__(self):
+        return "%s--%s"% (self.user,self.nickname)
+
