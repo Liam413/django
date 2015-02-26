@@ -155,3 +155,5 @@ LOGGING = {
         },
     }
 }
+
+STATIC_PATH="./media"

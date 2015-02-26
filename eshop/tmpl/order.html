@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% autoescape on %}
+{% block content %}
+    
+{% include "nav.html" %}    
+    
+    hi, you buy ~ ~ ~
+    
+{{order.user.username}}
+<br>
+{{order.odate}}
+<br>
+{{order.product.name}}
+<br>
+{{order.product.price}}
+<br>
+<img src="/media/{{order.product.img}}">
+
+{% include "pagenav.html" %}
+    
+{% endblock %}
+{% endautoescape %}

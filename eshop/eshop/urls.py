@@ -7,6 +7,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
      url(r'^$', 'order.views.index'),
+     url(r'^query$', 'order.views.query'),
+     url(r'^order$', 'order.views.order'),
     # url(r'^eshop/', include('eshop.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -14,4 +16,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': "./media"})
 )
