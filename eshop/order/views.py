@@ -43,3 +43,17 @@ def order(request):
         orderObj= Order.objects.create(product=product,user=request.user)
     
     return render_to_response("order.html",{"order":orderObj},context_instance = RequestContext(request))
+
+def orderList(request):
+    
+    pagenum =1
+
+    if request.REQUEST.has_key('pid'):
+
+        pagenum = request.REQUEST['pid']
+
+    order = Order.objects.all()
+    p=Paginator(order, 3)
+    page = p.page(pagenum)  
+    
+    return render_to_response("order_list.html",{"user":request.user,"p":p,"page":page},context_instance = RequestContext(request))

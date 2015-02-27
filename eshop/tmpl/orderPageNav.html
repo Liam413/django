@@ -1,0 +1,10 @@
+{% if page.has_previous %}
+<a href="/orderList?pid={{page.previous_page_number}}">上一页</a>
+{% endif %}
+{% for pn in p.page_range %}
+    <a href="/orderList?pid={{pn}}">{{pn}}</a>
+{% endfor%}
+
+{% if page.has_next %}
+<a href="/orderList?pid={{page.next_page_number}}">下一页</a>
+{% endif %}

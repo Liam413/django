@@ -9,6 +9,7 @@ urlpatterns = patterns('',
      url(r'^$', 'order.views.index'),
      url(r'^query$', 'order.views.query'),
      url(r'^order$', 'order.views.order'),
+     url(r'^orderList$', 'order.views.orderList'),
     # url(r'^eshop/', include('eshop.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

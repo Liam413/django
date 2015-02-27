@@ -12,6 +12,6 @@ proj.directory-list = [{'dirloc': loc('.'),
                         'watch_for_changes': True}]
 proj.file-type = 'shared'
 proj.launch-config = {loc('manage.py'): ('project',
-        (u'runserver',
+        (u'runserver 8002',
          ''))}
 proj.main-file = loc('manage.py')

@@ -4,9 +4,7 @@
     
 {% include "nav.html" %}    
     
-    hi, welcome to my first page ~  
-    <br>
-    <a href="/orderList">查看订单</a>
+    hi, welcome to my orderlist page ~  
     
 <table align="center">
 <tr>
@@ -22,7 +20,7 @@
     
     
     <br />
-    {% include "pagenav.html" %}
+    {% include "orderPageNav.html" %}
     </br>
     <table id="result_list" align="center">
 <thead>
@@ -30,25 +28,25 @@
 
 <th scope="col"  class="action-checkbox-column">
    
-   <div class="text"><span>name</span></div>
+   <div class="text"><span>id</span></div>
 
 </th>
 
 <th scope="col"  class="action-checkbox-column">
    
-   <div class="text"><span>price</span></div>
+   <div class="text"><span>订单时间</span></div>
 
 </th>
 
 <th scope="col"  class="action-checkbox-column">
    
-   <div class="text"><span>type</span></div>
+   <div class="text"><span>订单商品</span></div>
 
 </th>
 
 <th scope="col"  class="action-checkbox-column">
    
-   <div class="text"><span>image</span></div>
+   <div class="text"><span>购买人</span></div>
 
 </th>
 
@@ -57,17 +55,17 @@
 <tbody>
 
 {% for obj in page.object_list %}
-<tr class="{% cycle row1,row2 %}">
-<th>{{obj.name}}<a href="/order?pid={{obj.id}}">订购</a></th>
-<th>{{obj.price}}</th>
-<th>{{obj.ptype}}</th>
-<th><img src="/media/{{obj.img}}" style="width:120px;height:120px"/></th>
+<tr class="{% cycle row1,row2 %}" style="height:20px">
+<th>{{obj.id}}<a href="/order?pid={{obj.id}}">订购</a></th>
+<th>{{obj.odate}}</th>
+<th>{{obj.product}}</th>
+<th>{{obj.user}}</th>
 </tr>
 {% endfor %}
 
 </tbody>
 </table>
-    {% include "pagenav.html" %}
+    {% include "orderPageNav.html" %}
     
 {% endblock %}
 {% endautoescape %}
